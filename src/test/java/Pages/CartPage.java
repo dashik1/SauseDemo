@@ -16,6 +16,11 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return itemNameInCart.isDisplayed();
+    }
+
     public String getItemNameInCart() {
         return itemNameInCart.getText();
     }

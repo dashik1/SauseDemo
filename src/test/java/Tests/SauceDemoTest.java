@@ -1,5 +1,6 @@
 package Tests;
 
+import DriverManager.DriverManager;
 import Pages.CartPage;
 import Pages.ExternalPage;
 import Pages.LoginPage;
@@ -42,14 +43,14 @@ public class SauceDemoTest extends BaseTest {
         loginPage.inputPassword();
         loginPage.clickLoginButton();
 
-        removeImplicitlyWait();
+        //removeImplicitlyWait();
         ProductsPage productsPage = new ProductsPage(driver);
         productsPage.goToLinkedInLink();
 
         ExternalPage externalPage = new ExternalPage(driver);
         externalPage.switchToNewTab();
         externalPage.setWebDriverWaitForLogo();
-        setImplicitlyWait();
+        //setImplicitlyWait();
         Assert.assertTrue(externalPage.isLogoDisplayed(), "Logo is not displayed!");
 
 

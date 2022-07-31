@@ -25,6 +25,11 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public boolean isPageOpened() {
+        return cartLink.isDisplayed();
+    }
+
     public String getItemName() {
         return itemName.getText();
     }
@@ -33,16 +38,19 @@ public class ProductsPage extends BasePage {
         return itemPrice.getText();
     }
 
-    public void clickAddToCartButton() {
+    public ProductsPage clickAddToCartButton() {
         addToCartButton.click();
+        return this;
     }
 
-    public void goToCart() {
+    public CartPage goToCart() {
         cartLink.click();
+        return new CartPage(driver);
     }
 
-    public void goToLinkedInLink() {
+    public ExternalPage goToLinkedInLink() {
         linkedInLink.click();
+        return new ExternalPage(driver);
     }
 
 
