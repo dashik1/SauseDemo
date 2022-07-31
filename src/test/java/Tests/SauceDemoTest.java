@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.CartPage;
+import Pages.ExternalPage;
 import Pages.LoginPage;
 import Pages.ProductsPage;
 import org.testng.Assert;
@@ -29,6 +30,28 @@ public class SauceDemoTest extends BaseTest {
 
         Assert.assertEquals(itemNameExpected, itemNameInCart);
         Assert.assertEquals(itemPriceExpected, itemPriceInCart);
+
+    }
+
+    @Test
+    public void linkedInLogoTest() {
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.openLoginPage();
+        loginPage.inputStandardUsername();
+        loginPage.inputPassword();
+        loginPage.clickLoginButton();
+
+        removeImplicitlyWait();
+        ProductsPage productsPage = new ProductsPage(driver);
+        productsPage.goToLinkedInLink();
+
+        ExternalPage externalPage = new ExternalPage(driver);
+        externalPage.switchToNewTab();
+        externalPage.setWebDriverWaitForLogo();
+        setImplicitlyWait();
+        Assert.assertTrue(externalPage.isLogoDisplayed(), "Logo is not displayed!");
+
 
     }
 
