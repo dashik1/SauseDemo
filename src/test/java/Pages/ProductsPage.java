@@ -18,6 +18,9 @@ public class ProductsPage extends BasePage {
     @FindBy(css = ".shopping_cart_link")
     private WebElement cartLink;
 
+    @FindBy(xpath = "//a[text()='LinkedIn']")
+    private WebElement linkedInLink;
+
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
@@ -36,6 +39,10 @@ public class ProductsPage extends BasePage {
 
     public void goToCart() {
         cartLink.click();
+    }
+
+    public void goToLinkedInLink() {
+        linkedInLink.click();
     }
 
 
