@@ -21,20 +21,29 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void openLoginPage() {
+    @Override
+    public boolean isPageOpened() {
+        return loginButton.isDisplayed();
+    }
+
+    public LoginPage openLoginPage() {
         driver.get(Constants.URL);
+        return this;
     }
 
-    public void inputStandardUsername() {
+    public LoginPage inputStandardUsername() {
         usernameField.sendKeys(Constants.STANDARD_USER_NAME);
+        return this;
     }
 
-    public void inputPassword() {
+    public LoginPage inputPassword() {
         passwordField.sendKeys(Constants.PASSWORD);
+        return this;
     }
 
-    public void clickLoginButton() {
+    public ProductsPage clickLoginButton() {
         loginButton.click();
+        return new ProductsPage(driver);
     }
 
 

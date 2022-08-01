@@ -19,15 +19,22 @@ public class ExternalPage extends BasePage {
         super(driver);
     }
 
-    public void switchToNewTab() {
+    @Override
+    public boolean isPageOpened() {
+        return logo.isDisplayed();
+    }
+
+    public ExternalPage switchToNewTab() {
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(newTab.get(1));
+        return this;
     }
 
     WebDriverWait wait = new WebDriverWait(driver, 10);
 
-    public void setWebDriverWaitForLogo() {
+    public ExternalPage setWebDriverWaitForLogo() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//icon[@data-test-id='nav-logo']")));
+        return this;
     }
 
     public boolean isLogoDisplayed() {
