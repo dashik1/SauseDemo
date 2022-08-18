@@ -3,5 +3,6 @@ package DriverManager;
 public enum DriverType {
 
     CHROME,
-    FIREFOX
+    FIREFOX,
+    REMOTE
 }
