@@ -13,7 +13,7 @@ public class FirefoxDriverManager extends DriverManager {
         WebDriverManager.firefoxdriver().setup();
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setCapability("marionette", true);
-        driver = new FirefoxDriver(capabilities);
+        threadLocalDriver.set(new FirefoxDriver(capabilities));
 
     }
 }

@@ -6,6 +6,7 @@ public class DriverFactory {
 
         DriverManager driverManager;
 
+
         switch (driverType) {
             case CHROME:
                 driverManager = new ChromeDriverManager();

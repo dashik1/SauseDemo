@@ -10,7 +10,7 @@ public class ChromeDriverManager extends DriverManager {
     @Override
     public void createDriver() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        threadLocalDriver.set(new ChromeDriver());
 
     }
 }
