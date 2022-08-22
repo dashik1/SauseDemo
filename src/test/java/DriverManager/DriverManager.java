@@ -27,9 +27,5 @@ public abstract class DriverManager {
 
     }
 
-    public void quitDriver() {
-        getDriver().quit();
-    }
-
 
 }

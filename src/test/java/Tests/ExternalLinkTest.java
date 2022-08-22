@@ -18,14 +18,13 @@ public class ExternalLinkTest extends  BaseTest {
         loginPage.inputPassword();
         loginPage.clickLoginButton();
 
-        //removeImplicitlyWait();
         ProductsPage productsPage = new ProductsPage(driverManager.getDriver());
         productsPage.goToLinkedInLink();
 
         ExternalPage externalPage = new ExternalPage(driverManager.getDriver());
         externalPage.switchToNewTab();
         externalPage.setWebDriverWaitForLogo();
-        //setImplicitlyWait();
+
         Assert.assertTrue(externalPage.isLogoDisplayed(), "Logo is not displayed!");
 
 
