@@ -25,7 +25,7 @@ public class RemoteDriverManager extends DriverManager {
 
 
         try {
-            driver = new RemoteWebDriver( new URL("https://oauth-dashadovgalenok-f4ef1:106357d4-cd06-4f9c-b912-59c1f114dc13@ondemand.eu-central-1.saucelabs.com:443/wd/hub"), browserOptions);
+            threadLocalDriver.set(new RemoteWebDriver( new URL("https://oauth-dashadovgalenok-f4ef1:106357d4-cd06-4f9c-b912-59c1f114dc13@ondemand.eu-central-1.saucelabs.com:443/wd/hub"), browserOptions));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

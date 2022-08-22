@@ -6,29 +6,25 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class DriverManager {
 
-    protected WebDriver driver;
+    protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
     public abstract void createDriver();
 
     public WebDriver getDriver() {
-        return driver;
+        return threadLocalDriver.get();
     }
 
     public void startMaximize() {
-        driver.manage().window().maximize();
+        threadLocalDriver.get().manage().window().maximize();
     }
 
     public void setTimeout() {
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        threadLocalDriver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     public void removeTimeout() {
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        threadLocalDriver.get().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
-    }
-
-    public void quitDriver() {
-        driver.quit();
     }
 
 
